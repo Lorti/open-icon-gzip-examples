@@ -5,7 +5,9 @@ Should we just inline all SVG icons and stop worrying? What would gzip do?
 * `references.html` contains the full [Open Iconic v1.1.1](http://useiconic.com/open) sprite with all 223 SVG icons referenced via `<use>`.
 * `inline.html` contains each of the 223 SVG icons inlined in the HTML.
 * `duplicates.html` contains each of the 223 SVG icons inlined in the HTML, 10 times in a row.
-* `some-duplicates.html` contains each of the 223 SVG icons inlined in the HTML, with 4 icons repeated 20 times.<br>The icons were selected to have different "representative" lengths:
+* `some-duplicates.html` contains each of the 223 SVG icons inlined in the HTML, with 4 icons repeated 20 times.
+
+The icons in `some-duplicates.html` were selected to have different "representative" lengths, similar to what might be used on a real page -- most of the icons once, and few of the icons often.
     
         <svg class="icon" width="8" height="8" viewBox="0 0 8 8">
             <path d="M0 0v1h8v-1h-8zm2 2v1h6v-1h-6zm-2 2v1h8v-1h-8zm2 2v1h6v-1h-6z"/>
@@ -59,3 +61,36 @@ minified-gzip-6
 103887 open-iconic-duplicates.min.html.gz
  12029 open-iconic-some-duplicates.min.html.gz
 ```
+
+<table>
+    <tr>
+        <th></th>
+        <th>Minified HTML</th>
+        <th>gzip -1<br>(nginx Default)</th>
+        <th>gzip -6<br>(CLI Default)</th>
+    </tr>
+    <tr>
+        <td>References</td>
+        <td>68167</td>
+        <td>17888</td>
+        <td>14990</td>
+    </tr>
+    <tr>
+        <td>Inline</td>
+        <td>59003</td>
+        <td>14323</td>
+        <td>11424</td>
+    </tr>
+    <tr>
+        <td>Duplicates</td>
+        <td>585522</td>
+        <td>138102</td>
+        <td>103887</td>
+    </tr>
+    <tr>
+        <td>Some Duplicates</td>
+        <td>85525</td>
+        <td>15213</td>
+        <td>12029</td>
+    </tr>
+</table>
